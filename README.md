@@ -11,6 +11,9 @@ $ npm start
 ```
 
 ### Example of Styled Components
+![Screen Shot 2021-05-10 at 9 44 52 PM](https://user-images.githubusercontent.com/29741570/117750431-0122a780-b1d9-11eb-9e7d-0508af8c86a9.png)
+
+**CODE**
 ```javascript
 import React from 'react';
 import styled from 'styled-components';
