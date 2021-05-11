@@ -1,36 +1,41 @@
-import React, { useState } from 'react';
-import './App.scss';
+import React from 'react';
+import styled from 'styled-components';
+
+const Button1 = styled.button`
+  color: white;
+  background-color: darkgreen;
+`;
+
+const Button2 = styled.button`
+  color: white;
+  background-color: darkred;
+`;
+
+const ButtonDiv = styled.div`
+  color: white;
+  background-color: ${(props) => props.bgColor || 'black'};
+  margin: 10px;
+  padding: 20px;
+`;
 
 function App() {
-  const [domWriting, setDomWriting] = useState('Nothing Here!');
-
   const handleClick = (e) => {
-    console.warn(`You clicked ${e.target.id}`);
-    setDomWriting(`You clicked ${e.target.id}! Check the Console!`);
+    console.warn(e.target.outerText);
   };
 
   return (
     <div className='App'>
-      <h2>INSIDE APP COMPONENT</h2>
-      <div>
-        <button
-          id='this-button'
-          className='btn btn-info'
-          onClick={handleClick}
-        >
-          I am THIS button
-        </button>
-      </div>
-      <div>
-        <button
-          id='that-button'
-          className='btn btn-primary mt-3'
-          onClick={handleClick}
-        >
-          I am THAT button
-        </button>
-      </div>
-      <h3>{domWriting}</h3>
+      {/* Styled component without prop  */}
+      <ButtonDiv>
+        <Button1 onClick={handleClick}>I am button 1</Button1>
+      </ButtonDiv>
+
+      <button onClick={handleClick}>I am button 1 no style</button>
+
+      {/* Styled component with prop  */}
+      <ButtonDiv bgColor='purple'>
+        <Button2 onClick={handleClick}>I am button 2</Button2>
+      </ButtonDiv>
     </div>
   );
 }
